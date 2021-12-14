@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -84,7 +86,10 @@ set_property ip_output_repo d:/documenten/schooljaar2022/fpga/fpga_dotcatcher/ca
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/catcher_project/catcher_project.srcs/sources_1/new/buttons.vhd
+read_vhdl -library xil_defaultlib {
+  D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/catcher_project/catcher_project.srcs/sources_1/new/buttons.vhd
+  D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/catcher_project/catcher_project.srcs/sources_1/new/segment_Display.vhd
+}
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
