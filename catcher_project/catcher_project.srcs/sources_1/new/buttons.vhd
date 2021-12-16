@@ -37,16 +37,26 @@ entity buttons is
            r : in STD_LOGIC;
            l : in STD_LOGIC;
            reset : in STD_LOGIC;
-           led : out STD_LOGIC_VECTOR (4 downto 0)); --put in commente
+           led : out STD_LOGIC_VECTOR (4 downto 0); --put in commente
+           seg : out STD_LOGIC_VECTOR (6 downto 0);
+           dig : out STD_LOGIC_VECTOR (3 downto 0));
 end buttons;
 
+
 architecture Behavioral of buttons is
+signal segments : std_logic_vector (6 downto 0);
+signal digits : std_logic_vector (3 downto 0);
 
 begin
-
+    segments <= "0110110";
+    digits <= "1100";
+    
     led(0) <= up;
     led(1) <= dwn;
     led(2) <= l;
     led(3) <= r;
     led(4) <= reset;
+    seg <= segments;
+    dig <= digits;
+
 end Behavioral;

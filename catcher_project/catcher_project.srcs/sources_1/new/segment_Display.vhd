@@ -33,16 +33,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity segment_Display is
     Port ( 
-           up : in STD_LOGIC;
            seg : out STD_LOGIC_VECTOR (6 downto 0);
-           dig0 : out STD_LOGIC_vector (3 downto 0)
+           dig : out STD_LOGIC_VECTOR (3 downto 0)
            );
 end segment_Display;
 
 architecture Behavioral of segment_Display is
 
 begin
-seg(0) <= up;
+
+seg <= "1010101";
+
+dig <= "1001";
 
 
 end Behavioral;
