@@ -49,6 +49,23 @@ set_property PACKAGE_PIN W5 [get_ports clk]
 #set_property PACKAGE_PIN R2 [get_ports {sw[15]}]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports {sw[15]}]
  
+set_property PACKAGE_PIN K17 [get_ports {up}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {up}]
+##Sch name = JC2
+set_property PACKAGE_PIN M18 [get_ports {dwn}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {dwn}]
+##Sch name = JC3
+set_property PACKAGE_PIN N17 [get_ports {l}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {l}]
+##Sch name = JC4
+set_property PACKAGE_PIN P18 [get_ports {r}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {r}]
+##Sch name = JC7
+set_property PACKAGE_PIN L17 [get_ports {reset}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {reset}]
+
+set_property PACKAGE_PIN U16 [get_ports {led}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {led}]
 
 ## LEDs
 #set_property PACKAGE_PIN U16 [get_ports {led[0]}]					

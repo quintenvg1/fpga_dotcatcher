@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 19.01.2022 10:39:10
+-- Create Date: 19.01.2022 14:24:32
 -- Design Name: 
--- Module Name: matrix_driver - Behavioral
+-- Module Name: buttons - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -30,27 +30,32 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
---x and y contain a series of bits to light up player and target simultaniously
-entity matrix_driver is
-    Port ( 
-           clk : in STD_LOGIC;
-           signal Xrow : STD_LOGIC_VECTOR (7 downto 0);
-           signal Yrow : STD_LOGIC_VECTOR (7 downto 0);
-           x : out STD_LOGIC_VECTOR (7 downto 0);
-           y : out STD_LOGIC_VECTOR (7 downto 0));
-end matrix_driver;
 
-architecture Behavioral of matrix_driver is
+entity buttons is
+    Port (  
+        Led : out STD_LOGIC;
+        Up : in STD_LOGIC;
+        Dwn : in STD_LOGIC;
+        L : in STD_LOGIC;
+        R : in STD_LOGIC;
+        Reset : in STD_LOGIC;
+        Upout : out STD_LOGIC;
+        Dwnout : out STD_LOGIC;
+        Lout : out STD_LOGIC;
+        Rout : out STD_LOGIC;
+        Resetout : out STD_LOGIC
+        );
+end buttons;
+
+architecture Behavioral of buttons is
 
 begin
 
-process(clk) begin --make 8 counter and light up individual pixels
-    if(rising_edge(clk)) then
-       --testing code
-       x <= Xrow;
-       y <= Yrow;
-    end if;
-
-end process;
+Upout <= Up;
+Dwnout <= Dwn;
+Lout <= L;
+Rout <= R;
+Resetout <= Reset;
+Led <= Reset;
 
 end Behavioral;
