@@ -49,7 +49,7 @@ signal digits : std_logic_vector (3 downto 0);
 
 begin
     segments <= "0110110";
-    digits <= "1100";v
+    digits <= "1100";
     
     led(0) <= up;
     led(1) <= dwn;
