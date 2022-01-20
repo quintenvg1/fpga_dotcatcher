@@ -89,6 +89,7 @@ OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
   D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/clock_driven_ledmatrix.srcs/sources_1/new/buttons.vhd
   D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/clock_driven_ledmatrix.srcs/sources_1/new/matrix_driver.vhd
+  D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/segment_display/segment_display.srcs/sources_1/new/sevenseg.vhd
   D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/clock_driven_ledmatrix.srcs/sources_1/new/top.vhd
 }
 OPTRACE "Adding files" END { }

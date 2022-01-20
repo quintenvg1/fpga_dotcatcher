@@ -49,7 +49,9 @@ entity top is --all the inputs, outputs are driven from underlying components
     led : out STD_LOGIC;
     led1 : out STD_LOGIC;
     X : out STD_LOGIC_VECTOR(7 downto 0);
-    Y : out std_logic_vector(7 downto 0)
+    Y : out std_logic_vector(7 downto 0);
+    Anode_Activate : out STD_LOGIC_VECTOR (3 downto 0);-- 4 Anode signals
+    LED_out : out STD_LOGIC_VECTOR (6 downto 0)-- Cathode patterns of 7-segment display
    );
 end top;
 
@@ -64,6 +66,13 @@ component matrix_driver is
            signal yrow : STD_LOGIC_VECTOR (7 downto 0):="00000000";
            x : out STD_LOGIC_VECTOR (7 downto 0);
            y : out STD_LOGIC_VECTOR (7 downto 0));
+end component;
+
+component seven_segment_display_VHDL is
+    Port ( clk : in STD_LOGIC;-- 100Mhz clock on Basys 3 FPGA board
+           Anode_Activate : out STD_LOGIC_VECTOR (3 downto 0);-- 4 Anode signals
+           LED_out : out STD_LOGIC_VECTOR (6 downto 0);-- Cathode patterns of 7-segment display
+           reset : in STD_LOGIC); -- reset
 end component;
 
 
@@ -99,6 +108,7 @@ begin
 
 driver:matrix_driver port map(clk => clk, Xrow => xrow , Yrow => yrow ,x => X, y => Y); --connects clock update clock connects fine?
 button:buttons port map(up => Up, dwn => Dwn, l => L, r => R, reset => Reset, led => Led);
+timer0:seven_segment_display_VHDL port map (clk => clk, reset => reset, LED_out => LED_out, Anode_Activate  => Anode_Activate );
 --led1 <= '0';
 
 process(clk, L, R, Up, Dwn, Reset) begin

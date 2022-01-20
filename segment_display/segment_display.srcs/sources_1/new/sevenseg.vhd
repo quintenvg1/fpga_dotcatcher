@@ -4,7 +4,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.std_logic_unsigned.all;
 entity seven_segment_display_VHDL is
-    Port ( clock_100Mhz : in STD_LOGIC;-- 100Mhz clock on Basys 3 FPGA board
+    Port ( clk : in STD_LOGIC;-- 100Mhz clock on Basys 3 FPGA board
            reset : in STD_LOGIC; -- reset
            Anode_Activate : out STD_LOGIC_VECTOR (3 downto 0);-- 4 Anode signals
            LED_out : out STD_LOGIC_VECTOR (6 downto 0));-- Cathode patterns of 7-segment display
@@ -51,11 +51,11 @@ begin
 end process;
 -- 7-segment display controller
 -- generate refresh period of 10.5ms
-process(clock_100Mhz,reset)
+process(clk,reset)
 begin 
     if(reset='1') then
         refresh_counter <= (others => '0');
-    elsif(rising_edge(clock_100Mhz)) then
+    elsif(rising_edge(clk)) then
         refresh_counter <= refresh_counter + 1;
     end if;
 end process;
@@ -88,11 +88,11 @@ begin
 end process;
 -- Counting the number to be displayed on 4-digit 7-segment Display 
 -- on Basys 3 FPGA board
-process(clock_100Mhz, reset)
+process(clk, reset)
 begin
         if(reset='1') then
             one_second_counter <= (others => '0');
-        elsif(rising_edge(clock_100Mhz)) then
+        elsif(rising_edge(clk)) then
             if(one_second_counter>=x"5F5E0FF") then
                 one_second_counter <= (others => '0');
             else
@@ -101,11 +101,11 @@ begin
         end if;
 end process;
 one_second_enable <= '1' when one_second_counter=x"5F5E0FF" else '0';
-process(clock_100Mhz, reset)
+process(clk, reset)
 begin
         if(reset='1') then
             displayed_number <= (others => '0');
-        elsif(rising_edge(clock_100Mhz)) then
+        elsif(rising_edge(clk)) then
              if(one_second_enable='1') then
                 displayed_number <= displayed_number + x"0001";
              end if;
