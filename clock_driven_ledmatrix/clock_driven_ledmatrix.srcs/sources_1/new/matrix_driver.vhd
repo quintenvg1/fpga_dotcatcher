@@ -34,8 +34,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity matrix_driver is
     Port ( 
            clk : in STD_LOGIC;
-           signal Xrow : STD_LOGIC_VECTOR (7 downto 0);
-           signal Yrow : STD_LOGIC_VECTOR (7 downto 0);
+           signal xrow : STD_LOGIC_VECTOR (7 downto 0);
+           signal yrow : STD_LOGIC_VECTOR (7 downto 0);
            x : out STD_LOGIC_VECTOR (7 downto 0);
            y : out STD_LOGIC_VECTOR (7 downto 0));
 end matrix_driver;
@@ -43,12 +43,13 @@ end matrix_driver;
 architecture Behavioral of matrix_driver is
 
 begin
-
+--x <= xrow;
+--y <= yrow;
 process(clk) begin --make 8 counter and light up individual pixels
     if(rising_edge(clk)) then
        --testing code
-       x <= Xrow;
-       y <= Yrow;
+       x <= xrow;
+       y <= yrow;
     end if;
 
 end process;

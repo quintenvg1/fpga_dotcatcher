@@ -46,6 +46,7 @@ entity top is --all the inputs, outputs are driven from underlying components
     r : in STD_LOGIC;
     reset : in STD_LOGIC;
     led : out STD_LOGIC;
+    led1 : out STD_LOGIC;
     X : out STD_LOGIC_VECTOR(7 downto 0);
     Y : out std_logic_vector(7 downto 0)
    );
@@ -58,8 +59,8 @@ architecture Behavioral of top is
 component matrix_driver is
     Port ( 
            clk : in STD_LOGIC;
-           signal Xrow : STD_LOGIC_VECTOR (7 downto 0);
-           signal Yrow : STD_LOGIC_VECTOR (7 downto 0);
+           signal xrow : STD_LOGIC_VECTOR (7 downto 0):="11111111";
+           signal yrow : STD_LOGIC_VECTOR (7 downto 0):="00000000";
            x : out STD_LOGIC_VECTOR (7 downto 0);
            y : out STD_LOGIC_VECTOR (7 downto 0));
 end component;
@@ -76,24 +77,29 @@ component buttons is
         );
 end component;
 
-signal Xrow : std_logic_vector (7 downto 0):="01111111";
-signal Yrow : std_logic_vector (7 downto 0):="10000000";
-signal row1 : std_logic_vector (7 downto 0):="00000000";
-signal row2 : std_logic_vector (7 downto 0):="00000000";
+signal Xrow : std_logic_vector (7 downto 0):="11111111"; -- 1 = off, 0 = on
+signal Yrow : std_logic_vector (7 downto 0):="00000000"; -- 0 = off, 1 = on
+signal playerX : std_logic_vector (7 downto 0):="11101111";
+signal playerY : std_logic_vector (7 downto 0):="00010000";
+signal targetX : std_logic_vector (7 downto 0):="11110111";
+signal targetY : std_logic_vector (7 downto 0):="00001000";
+signal counter : std_logic := '0'; --bit to toggle each clockcycle high draws player low draws target
 
 begin
-
-driver:matrix_driver port map(clk => clk, Xrow => Xrow , Yrow => Yrow ,x => X, y => Y); --connects clock update clock connects fine?
+driver:matrix_driver port map(clk => clk, Xrow => xrow , Yrow => yrow ,x => X, y => Y); --connects clock update clock connects fine?
 button:buttons port map(up => Up, dwn => Dwn, l => L, r => R, reset => Reset, led => Led);
 
 process(clk) begin
     if(rising_edge(clk)) then
-        --Xrow <= row2;
+        counter <= not counter; --toggle the bit
+        case counter is --experimental code
+          when '1' =>   Xrow <= playerX; Yrow <= playerY; led1 <= '1';
+          when '0' =>   Xrow <= targetX; Yrow <= targetY; led1 <= '0';
+          when others => Xrow <= playerX; Yrow <= targetY;
+        end case;
     end if;
-    if(falling_edge(clk)) then
-        --Xrow <= row2;
-    end if;
-    
-end process;
 
+end process;
+--Xrow <= playerX; --works
+--Yrow <= playerY; --works
 end Behavioral;
