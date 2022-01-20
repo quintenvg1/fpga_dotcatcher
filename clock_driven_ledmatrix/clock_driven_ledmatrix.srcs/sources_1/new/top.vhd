@@ -78,8 +78,8 @@ component buttons is
         );
 end component;
 
-signal Xrow : std_logic_vector (7 downto 0):="11111111"; -- 1 = off, 0 = on
-signal Yrow : std_logic_vector (7 downto 0):="00000000"; -- 0 = off, 1 = on
+signal Xrow : std_logic_vector (7 downto 0):="10111111"; -- 1 = off, 0 = on
+signal Yrow : std_logic_vector (7 downto 0):="10000000"; -- 0 = off, 1 = on
 signal playerX : std_logic_vector (7 downto 0):="11101111";
 signal playerY : std_logic_vector (7 downto 0):="00010000";
 signal targetX : std_logic_vector (7 downto 0):="11110111";
@@ -92,6 +92,22 @@ begin
 driver:matrix_driver port map(clk => clk, Xrow => xrow , Yrow => yrow ,x => X, y => Y); --connects clock update clock connects fine?
 button:buttons port map(up => Up, dwn => Dwn, l => L, r => R, reset => Reset, led => Led);
 --led1 <= '0';
+
+process(L,R,Up,Dwn,Reset) begin
+--controls
+    if(rising_edge(L)) then
+        playerX <= "10111111";
+        playerY <= "10000000";
+        led1 <= '0';
+    end if;
+    
+--    if(rising_edge(Reset)) then
+--        playerX <="11101111";
+--        playerY <="00010000";
+--        led1 <= '1';
+--    end if;
+end process;
+
 process(clk) begin
     if(rising_edge(clk)) then
          timer <= timer + 1;

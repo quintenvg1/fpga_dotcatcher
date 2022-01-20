@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Thu Jan 20 12:34:39 2022
+| Date         : Thu Jan 20 13:56:44 2022
 | Host         : DESKTOP-R9KAKAD running 64-bit major release  (build 9200)
 | Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 | Design       : top
@@ -23,15 +23,26 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 3
-+-----------+----------+-------------------+------------+
-| Rule      | Severity | Description       | Violations |
-+-----------+----------+-------------------+------------+
-| TIMING-20 | Warning  | Non-clocked latch | 3          |
-+-----------+----------+-------------------+------------+
+             Violations found: 6
++-----------+------------------+-----------------------------+------------+
+| Rule      | Severity         | Description                 | Violations |
++-----------+------------------+-----------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell | 2          |
+| TIMING-20 | Warning          | Non-clocked latch           | 4          |
++-----------+------------------+-----------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+TIMING-17#1 Critical Warning
+Non-clocked sequential cell  
+The clock pin playerX_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#2 Critical Warning
+Non-clocked sequential cell  
+The clock pin playerX_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
 TIMING-20#1 Warning
 Non-clocked latch  
 The latch Xrow_reg[3] cannot be properly analyzed as its control pin Xrow_reg[3]/G is not reached by a timing clock
@@ -44,7 +55,12 @@ Related violations: <none>
 
 TIMING-20#3 Warning
 Non-clocked latch  
-The latch Yrow_reg[4] cannot be properly analyzed as its control pin Yrow_reg[4]/G is not reached by a timing clock
+The latch Xrow_reg[6] cannot be properly analyzed as its control pin Xrow_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch Yrow_reg[7] cannot be properly analyzed as its control pin Yrow_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 
