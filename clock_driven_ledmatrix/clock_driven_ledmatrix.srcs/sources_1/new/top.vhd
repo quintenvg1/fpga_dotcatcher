@@ -21,7 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -82,24 +83,34 @@ signal Yrow : std_logic_vector (7 downto 0):="00000000"; -- 0 = off, 1 = on
 signal playerX : std_logic_vector (7 downto 0):="11101111";
 signal playerY : std_logic_vector (7 downto 0):="00010000";
 signal targetX : std_logic_vector (7 downto 0):="11110111";
-signal targetY : std_logic_vector (7 downto 0):="00001000";
-signal counter : std_logic := '0'; --bit to toggle each clockcycle high draws player low draws target
+signal targetY : std_logic_vector (7 downto 0):="00010000";
+signal counter : std_logic:='0'; --bit to toggle each clockcycle high draws player low draws target
+signal timer : std_logic_vector(7 downto 0);
 
 begin
+
 driver:matrix_driver port map(clk => clk, Xrow => xrow , Yrow => yrow ,x => X, y => Y); --connects clock update clock connects fine?
 button:buttons port map(up => Up, dwn => Dwn, l => L, r => R, reset => Reset, led => Led);
-
+--led1 <= '0';
 process(clk) begin
     if(rising_edge(clk)) then
-        counter <= not counter; --toggle the bit
-        case counter is --experimental code
-          when '1' =>   Xrow <= playerX; Yrow <= playerY; led1 <= '1';
-          when '0' =>   Xrow <= targetX; Yrow <= targetY; led1 <= '0';
-          when others => Xrow <= playerX; Yrow <= targetY;
-        end case;
+         timer <= timer + 1;
+         if(timer = 255) then
+            counter <= not counter;
+         end if;
     end if;
-
 end process;
+
+process(counter) begin
+    if(counter = '1') then
+        Xrow <= playerX;
+        Yrow <= playerY;
+    end if;
+    if(counter = '0') then
+        Xrow <= targetX;
+        Yrow <= targetY;
+    end if;
+end process;          
 --Xrow <= playerX; --works
 --Yrow <= playerY; --works
 end Behavioral;

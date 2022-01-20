@@ -43,15 +43,15 @@ end matrix_driver;
 architecture Behavioral of matrix_driver is
 
 begin
---x <= xrow;
---y <= yrow;
-process(clk) begin --make 8 counter and light up individual pixels
-    if(rising_edge(clk)) then
-       --testing code
-       x <= xrow;
-       y <= yrow;
-    end if;
+x <= xrow;
+y <= yrow;
+--process(clk) begin --make 8 counter and light up individual pixels
+--    if(rising_edge(clk)) then
+--       --testing code
+--       x <= xrow;
+--       y <= yrow;
+--    end if;
 
-end process;
+--end process;
 
 end Behavioral;
