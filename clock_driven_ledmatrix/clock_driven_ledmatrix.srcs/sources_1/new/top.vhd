@@ -80,32 +80,81 @@ end component;
 
 signal Xrow : std_logic_vector (7 downto 0):="10111111"; -- 1 = off, 0 = on
 signal Yrow : std_logic_vector (7 downto 0):="10000000"; -- 0 = off, 1 = on
-signal playerX : std_logic_vector (7 downto 0):="11101111";
+signal playerX : std_logic_vector (7 downto 0):="01111111";
 signal playerY : std_logic_vector (7 downto 0):="00010000";
 signal targetX : std_logic_vector (7 downto 0):="11110111";
-signal targetY : std_logic_vector (7 downto 0):="00010000";
+signal targetY : std_logic_vector (7 downto 0):="01000000";
 signal counter : std_logic:='0'; --bit to toggle each clockcycle high draws player low draws target
 signal timer : std_logic_vector(7 downto 0);
 
+
+--player position on the field
+signal xpos : integer:=0;
+signal ypos : integer:=0;
+signal debounceL : std_logic:='0';
+signal debounceR : std_logic:='0';
+signal debounceUp : std_logic:='0';
+signal debounceDwn : std_logic:='0';
 begin
 
 driver:matrix_driver port map(clk => clk, Xrow => xrow , Yrow => yrow ,x => X, y => Y); --connects clock update clock connects fine?
 button:buttons port map(up => Up, dwn => Dwn, l => L, r => R, reset => Reset, led => Led);
 --led1 <= '0';
 
-process(L,R,Up,Dwn,Reset) begin
+process(clk, L, R, Up, Dwn, Reset) begin
 --controls
-    if(rising_edge(L)) then
-        playerX <= "10111111";
-        playerY <= "10000000";
-        led1 <= '0';
-    end if;
+if(rising_edge(clk)) then
+    --left button
+    if(L = '1') then
+        if(debounceL = '0') then
+        xpos <= xpos +1;
+            if(xpos > 7) then
+                xpos <= 0;
+            end if; --xpos
+        end if; --left
+        debounceL <= '1';
+    else
+        debounceL <= '0';
+    end if; --left input
     
---    if(rising_edge(Reset)) then
---        playerX <="11101111";
---        playerY <="00010000";
---        led1 <= '1';
---    end if;
+     if(R = '1') then
+        if(debounceR = '0') then
+        xpos <= xpos -1;
+        if(xpos < 0) then
+            xpos <= 7;
+        end if; --xpos
+        end if; --right
+        debounceR <= '1';
+    else
+        debounceR <= '0';
+    end if; --right input
+    
+     if(Up = '1') then
+        if(debounceUp = '0') then
+        ypos <= ypos -1;
+            if(ypos < 0) then
+                ypos <= 7;
+            end if; --ypos
+        end if; --up
+        debounceUp <= '1';
+    else
+        debounceUp <= '0';
+    end if; --right input
+    
+    
+    if(Dwn = '1') then
+        if(debounceDwn = '0') then
+        ypos <= ypos + 1;
+            if(ypos > 7) then
+                ypos <= 0;
+            end if; --ypos
+        end if; --dwn
+        debounceDwn <= '1';
+    else
+        debounceDwn <= '0';
+    end if; --right input
+    
+end if; --clock
 end process;
 
 process(clk) begin
@@ -119,7 +168,11 @@ end process;
 
 process(counter) begin
     if(counter = '1') then
-        Xrow <= playerX;
+        playerX <= "11111111"; --reset player
+        playerX(xpos) <= '0'; -- set player x
+        playerY <= "00000000";
+        playerY(ypos) <= '1';
+        Xrow <= playerX; --draw player
         Yrow <= playerY;
     end if;
     if(counter = '0') then
