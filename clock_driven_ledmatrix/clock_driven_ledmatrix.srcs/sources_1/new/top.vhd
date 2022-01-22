@@ -104,6 +104,9 @@ signal debounceL : std_logic:='0';
 signal debounceR : std_logic:='0';
 signal debounceUp : std_logic:='0';
 signal debounceDwn : std_logic:='0';
+--target position parameters
+signal targetXpos : integer:=0;
+signal targetYpos : integer:=0;
 begin
 
 driver:matrix_driver port map(clk => clk, Xrow => xrow , Yrow => yrow ,x => X, y => Y); --connects clock update clock connects fine?
