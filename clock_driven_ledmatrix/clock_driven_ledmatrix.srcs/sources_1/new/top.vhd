@@ -120,6 +120,16 @@ if(rising_edge(clk)) then
     --left button
     if(L = '1') then
         if(debounceL = '0') then
+        --target code
+        targetXpos <= targetXpos -1;
+        if(targetXpos < 0) then
+        targetXpos <= 7;
+        end if;
+        targetYpos <= targetYpos +1;
+        if(targetYpos > 7) then
+        targetYpos <= 0;
+        end if;
+        --target code
         xpos <= xpos +1;
             if(xpos > 7) then
                 xpos <= 0;
@@ -132,6 +142,16 @@ if(rising_edge(clk)) then
     
      if(R = '1') then
         if(debounceR = '0') then
+        --target code
+        targetXpos <= targetXpos +1;
+        if(targetXpos > 7) then
+        targetXpos <= 0;
+        end if;
+        targetYpos <= targetYpos +1;
+        if(targetYpos > 7) then
+            targetYpos <= 0;
+        end if;
+        --target code
         xpos <= xpos -1;
         if(xpos < 0) then
             xpos <= 7;
@@ -144,6 +164,16 @@ if(rising_edge(clk)) then
     
      if(Up = '1') then
         if(debounceUp = '0') then
+        --target code
+        targetXpos <= targetXpos +1;
+        if(targetXpos > 7) then
+            targetXpos <= 0;
+        end if;
+        targetYpos <= targetYpos -1;
+        if(targetYpos < 0) then
+        targetYpos <= 7;
+        end if;
+        --target code
         ypos <= ypos -1;
             if(ypos < 0) then
                 ypos <= 7;
@@ -157,6 +187,16 @@ if(rising_edge(clk)) then
     
     if(Dwn = '1') then
         if(debounceDwn = '0') then
+        --target code
+        targetXpos <= targetXpos -1;
+        if(targetXpos < 0) then
+            targetXpos <= 7;
+        end if;
+        targetYpos <= targetYpos -1;
+        if(targetYpos < 0) then
+        targetYpos <= 7;
+        end if;
+        --target code
         ypos <= ypos + 1;
             if(ypos > 7) then
                 ypos <= 0;
