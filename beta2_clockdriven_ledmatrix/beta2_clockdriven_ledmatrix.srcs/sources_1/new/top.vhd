@@ -221,9 +221,9 @@ process(clk, up, dwn, r, l,reset, playerXint, playerYint, targetXint, targetYint
         --player move code
         --target move code
         nexttargetXint <= nexttargetXint -2;
-        if(nexttargetXint > 7) then nexttargetXint <= 0; end if;
+        if(nexttargetXint < 0) then nexttargetXint <= 7; end if;
         nexttargetYint <= nexttargetYint +1;
-        if(nexttargetYint < 0) then nexttargetYint <= 7; end if;
+        if(nexttargetYint > 7) then nexttargetYint <= 0; end if;
         --target move code
         debounceR <= '1'; --reset debounce
         end if; --debounce
@@ -305,15 +305,13 @@ process(gamestate, reset, score, won) begin --gamestate logic 8 states to keep a
             targetXint <= nexttargetXint; --move target
             targetYint <= nexttargetYint;
             end if;
+        else
+                led1 <= '0';
+                debounceScore <='0';
         end if;
     end if;
     
-    if(gamestate = 8) then --reset the score debouncer
-        led1 <= '0';
-        debounceScore <='0';
-    end if;
-    
-    if(score >= 20) then won <= '1'; end if; --should work
+    if(score >= 10) then won <= '1'; end if; --should work
     
     if(reset = '1') then --works
         score <= 0;
