@@ -97,7 +97,7 @@ begin
             if(one_second_counter>=x"5F5E0FF") then
                 one_second_counter <= (others => '0');
             else
-                if(timerPause = '0') then
+                if(timerPause = '0') then --to stop counter when the game is won
                     one_second_counter <= one_second_counter + "0000001";
                 end if;
             end if;
