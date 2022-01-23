@@ -54,7 +54,9 @@ end top;
 architecture Behavioral of top is
 
 component seven_segment_display_VHDL is
-    Port ( clk : in STD_LOGIC;-- 100Mhz clock on Basys 3 FPGA board
+    Port ( 
+           timerPause : in std_logic;
+           clk : in STD_LOGIC;-- 100Mhz clock on Basys 3 FPGA board
            reset : in STD_LOGIC; -- reset
            Anode_Activate : out STD_LOGIC_VECTOR (3 downto 0);-- 4 Anode signals
            LED_out : out STD_LOGIC_VECTOR (6 downto 0));-- Cathode patterns of 7-segment display
@@ -64,7 +66,8 @@ component timer is
     Port ( clk : in STD_LOGIC;-- 100Mhz clock on Basys 3 FPGA board
            reset : in STD_LOGIC; -- reset
            Anode_Activate : out STD_LOGIC_VECTOR (3 downto 0);-- 4 Anode signals
-           LED_out : out STD_LOGIC_VECTOR (6 downto 0));-- Cathode patterns of 7-segment display
+           LED_out : out STD_LOGIC_VECTOR (6 downto 0);-- Cathode patterns of 7-segment display
+           timerPause : in std_logic);
 end component;
 
 component buttons is
@@ -116,12 +119,12 @@ signal debounceScore: std_logic :='0'; -- i think the program does like 10 loops
 --gameplay variables
 signal score : integer:= 0;
 signal won : std_logic:='0';
-
+signal timerPause : std_logic;
 begin
 
 --component mapping to top
 mybutton: buttons port map(up => up, dwn => dwn, l => l, r => r, reset => reset, btnC => btnC, led => led); --maps buttons
-mytimer : seven_segment_display_VHDL port map(clk => clk, reset => reset, Anode_Activate => Anode_Activate, LED_out => LED_out);
+mytimer : seven_segment_display_VHDL port map(clk => clk, reset => reset, Anode_Activate => Anode_Activate, LED_out => LED_out, timerPause => timerPause);
 mydriver : matrix_driver port map(Xrow => xrow, Yrow => yrow, x => X, y => Y); --drive leds on the matrix
 led2 <= won;
 process(clk, up, dwn, r, l,reset, playerXint, playerYint, targetXint, targetYint, nexttargetXint, nexttargetYint) begin
@@ -150,7 +153,7 @@ process(clk, up, dwn, r, l,reset, playerXint, playerYint, targetXint, targetYint
             if(nexttargetYint < 0)then --target out of bounds
             nexttargetYint <= 7;
             end if; --targetreset
-            nexttargetXint <= nexttargetXint -1;
+            nexttargetXint <= nexttargetXint -2;
             if(nexttargetXint < 0)then --target out of bounds
             nexttargetYint <= 7;
             end if; --targetreset-
@@ -195,12 +198,12 @@ process(clk, up, dwn, r, l,reset, playerXint, playerYint, targetXint, targetYint
         --player moving code
         --target moving code
             nexttargetYint <= nexttargetYint +1;
-            if(nexttargetYint < 0)then --target out of bounds
-            nexttargetYint <= 7;
+            if(nexttargetYint > 7)then --target out of bounds
+            nexttargetYint <= 0;
             end if; --targetreset
             nexttargetXint <= nexttargetXint +2;
-            if(nexttargetXint < 0)then --target out of bounds
-            nexttargetYint <= 7;
+            if(nexttargetXint > 7)then --target out of bounds
+            nexttargetXint <= 0;
             end if; --targetreset-
          --taret moving code
         debounceDwn <= '1';
@@ -311,13 +314,13 @@ process(gamestate, reset, score, won) begin --gamestate logic 8 states to keep a
         end if;
     end if;
     
-    if(score >= 10) then won <= '1'; end if; --should work
+    if(score >= 10) then won <= '1'; timerPause <= '1'; end if; --should work, change back to 10 after testeing
     
     if(reset = '1') then --works
         score <= 0;
         won <= '0';
+        timerPause <= '0';
     end if;
-    
     if(btnC = '1') then --reset the target in case of no led bug
         targetXint <= 3;
         targetYint <= 4;

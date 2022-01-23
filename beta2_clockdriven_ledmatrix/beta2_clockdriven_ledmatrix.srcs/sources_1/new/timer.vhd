@@ -8,11 +8,10 @@ entity seven_segment_display_VHDL is
            reset : in STD_LOGIC; -- reset
            Anode_Activate : out STD_LOGIC_VECTOR (3 downto 0);-- 4 Anode signals
            LED_out : out STD_LOGIC_VECTOR (6 downto 0);-- Cathode patterns of 7-segment display
-           timerPause : in std_logic);
+           signal timerPause : std_logic);
 end seven_segment_display_VHDL;
 
 architecture Behavioral of seven_segment_display_VHDL is
-signal Pause : std_logic:='0';
 signal one_second_counter: STD_LOGIC_VECTOR (27 downto 0);
 -- counter for generating 1-second clock enable
 signal one_second_enable: std_logic;
@@ -30,7 +29,6 @@ signal LED_activating_counter: std_logic_vector(1 downto 0);
 begin
 -- VHDL code for BCD to 7-segment decoder
 -- Cathode patterns of the 7-segment LED display 
-Pause <= timerPause;
 process(LED_BCD)
 begin
     case LED_BCD is
@@ -54,14 +52,12 @@ begin
 end process;
 -- 7-segment display controller
 -- generate refresh period of 10.5ms
-process(clk,reset, pause)
+process(clk,reset, timerPause)
 begin 
     if(reset='1') then
         refresh_counter <= (others => '0');
     elsif(rising_edge(clk)) then
-        if(Pause = '0') then --code to pause the counter?
             refresh_counter <= refresh_counter + 1;
-        end if;
     end if;
 end process;
  LED_activating_counter <= refresh_counter(19 downto 18);
@@ -101,7 +97,9 @@ begin
             if(one_second_counter>=x"5F5E0FF") then
                 one_second_counter <= (others => '0');
             else
-                one_second_counter <= one_second_counter + "0000001";
+                if(timerPause = '0') then
+                    one_second_counter <= one_second_counter + "0000001";
+                end if;
             end if;
         end if;
 end process;
