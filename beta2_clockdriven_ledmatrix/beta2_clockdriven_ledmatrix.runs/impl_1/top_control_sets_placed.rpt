@@ -1,0 +1,97 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Sun Jan 23 16:48:35 2022
+| Host         : DESKTOP-R9KAKAD running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
+| Design       : top
+| Device       : xc7a35t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    19 |
+|    Minimum number of control sets                        |    19 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    50 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    19 |
+| >= 0 to < 4        |     6 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    12 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              41 |           16 |
+| No           | No                    | Yes                    |              48 |           12 |
+| No           | Yes                   | No                     |             119 |           41 |
+| Yes          | No                    | No                     |              64 |           31 |
+| Yes          | No                    | Yes                    |              16 |            4 |
+| Yes          | Yes                   | No                     |              94 |           28 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------+-------------------------------------+------------------------+------------------+----------------+--------------+
+|     Clock Signal     |            Enable Signal            |    Set/Reset Signal    | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+-------------------------------------+------------------------+------------------+----------------+--------------+
+|  won_reg_i_1_n_0     |                                     | led_OBUF               |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG       | p_1_in                              | debounceDwn_i_1_n_0    |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG       | debounceL_i_2_n_0                   | debounceL_i_1_n_0      |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG       | debounceR_i_2_n_0                   | debounceR_i_1_n_0      |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG       | debounceUp_i_2_n_0                  | debounceUp_i_1_n_0     |                1 |              1 |         1.00 |
+|  led1_reg_i_2_n_0    |                                     |                        |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG       |                                     |                        |                3 |              8 |         2.67 |
+|  playerX__0          |                                     |                        |                6 |             16 |         2.67 |
+|  targetX__0          |                                     |                        |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG       | mytimer/displayed_number[0]_i_1_n_0 | led_OBUF               |                4 |             16 |         4.00 |
+|  Xrow_reg[7]_i_2_n_0 |                                     | Xrow_reg[7]_i_3_n_0    |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG       | playerXint[31]_i_2_n_0              | playerXint[31]_i_1_n_0 |                8 |             29 |         3.62 |
+|  clk_IBUF_BUFG       | playerYint[31]_i_2_n_0              | playerYint[31]_i_1_n_0 |                8 |             29 |         3.62 |
+|  score__0_BUFG       |                                     | led_OBUF               |                9 |             32 |         3.56 |
+|  clk_IBUF_BUFG       | nexttargetYint[31]_i_1_n_0          |                        |               12 |             32 |         2.67 |
+|  clk_IBUF_BUFG       | eqOp                                | gamestate              |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG       | nexttargetXint[31]_i_1_n_0          |                        |               19 |             32 |         1.68 |
+|  clk_IBUF_BUFG       |                                     | led_OBUF               |               16 |             54 |         3.38 |
+|  targetXint__0_BUFG  |                                     | btnC_IBUF              |               22 |             64 |         2.91 |
++----------------------+-------------------------------------+------------------------+------------------+----------------+--------------+
+
+
