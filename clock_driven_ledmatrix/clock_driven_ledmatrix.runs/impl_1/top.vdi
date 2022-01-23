@@ -2,8 +2,8 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Sat Jan 22 12:41:17 2022
-# Process ID: 11060
+# Start of session at: Sat Jan 22 14:02:35 2022
+# Process ID: 7564
 # Current directory: D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/clock_driven_ledmatrix.runs/impl_1
 # Command line: vivado.exe -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
 # Log file: D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/clock_driven_ledmatrix.runs/impl_1/top.vdi
@@ -14,9 +14,9 @@ Command: open_checkpoint top_routed.dcp
 
 Starting open_checkpoint Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 1134.707 ; gain = 2.367
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.058 . Memory (MB): peak = 1134.492 ; gain = 4.039
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1145.074 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1143.602 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 56 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2021.1
@@ -28,15 +28,15 @@ INFO: [Project 1-853] Binary constraint restore complete.
 Reading XDEF placement.
 Reading placer database...
 Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.155 . Memory (MB): peak = 1386.199 ; gain = 9.078
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.188 . Memory (MB): peak = 1386.219 ; gain = 7.781
 Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.156 . Memory (MB): peak = 1386.199 ; gain = 9.078
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1386.199 ; gain = 0.000
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.189 . Memory (MB): peak = 1386.219 ; gain = 7.781
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1386.219 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Project 1-604] Checkpoint was created with Vivado v2021.1 (64-bit) build 3247384
-open_checkpoint: Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1386.199 ; gain = 261.660
+open_checkpoint: Time (s): cpu = 00:00:22 ; elapsed = 00:00:21 . Memory (MB): peak = 1386.219 ; gain = 265.934
 Command: write_bitstream -force top.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
@@ -66,9 +66,9 @@ Creating bitstream...
 Writing bitstream ./top.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [#UNDEF] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
-INFO: [Common 17-186] 'D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/clock_driven_ledmatrix.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Sat Jan 22 12:41:57 2022. For additional details about this file, please refer to the WebTalk help file at D:/programmas/xilinx/Vivado/2021.1/doc/webtalk_introduction.html.
+INFO: [Common 17-186] 'D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/clock_driven_ledmatrix.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Sat Jan 22 14:03:23 2022. For additional details about this file, please refer to the WebTalk help file at D:/programmas/xilinx/Vivado/2021.1/doc/webtalk_introduction.html.
 INFO: [Common 17-83] Releasing license: Implementation
 23 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1866.207 ; gain = 480.008
-INFO: [Common 17-206] Exiting Vivado at Sat Jan 22 12:41:58 2022...
+write_bitstream: Time (s): cpu = 00:00:17 ; elapsed = 00:00:25 . Memory (MB): peak = 1871.492 ; gain = 485.273
+INFO: [Common 17-206] Exiting Vivado at Sat Jan 22 14:03:23 2022...

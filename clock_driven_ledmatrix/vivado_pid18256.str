@@ -1,0 +1,173 @@
+/*
+
+Xilinx Vivado v2021.1 (64-bit) [Major: 2021, Minor: 1]
+SW Build: 3247384 on Thu Jun 10 19:36:33 MDT 2021
+IP Build: 3246043 on Fri Jun 11 00:30:35 MDT 2021
+
+Process ID (PID): 18256
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Sun Jan 23 10:11:51 CET 2022
+Time zone: 	Central European Standard Time (Europe/Berlin)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 12
+
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.2 64-bit
+Java home: 	D:/programmas/xilinx/Vivado/2021.1/tps/win64/jre11.0.2
+Java executable: 	D:/programmas/xilinx/Vivado/2021.1/tps/win64/jre11.0.2/bin/java.exe
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	quint
+User home directory: C:/Users/quint
+User working directory: D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix
+User country: 	BE
+User language: 	nl
+User locale: 	nl_BE
+
+RDI_BASEROOT: D:/programmas/xilinx/Vivado
+HDI_APPROOT: D:/programmas/xilinx/Vivado/2021.1
+RDI_DATADIR: D:/programmas/xilinx/Vivado/2021.1/data
+RDI_BINDIR: D:/programmas/xilinx/Vivado/2021.1/bin
+
+Vivado preferences file: C:/Users/quint/AppData/Roaming/Xilinx/Vivado/2021.1/vivado.xml
+Vivado preferences directory: C:/Users/quint/AppData/Roaming/Xilinx/Vivado/2021.1/
+Vivado layouts directory: C:/Users/quint/AppData/Roaming/Xilinx/Vivado/2021.1/data/layouts
+PlanAhead jar file: 	D:/programmas/xilinx/Vivado/2021.1/lib/classes/planAhead.jar
+Vivado log file: 	D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/vivado.log
+Vivado journal file: 	D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/vivado.jou
+Engine tmp dir: 	D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/.Xil/Vivado-18256-DESKTOP-R9KAKAD
+
+Xilinx Environment Variables
+----------------------------
+XILINX: D:/programmas/xilinx/Vivado/2021.1/ids_lite/ISE
+XILINX_DSP: D:/programmas/xilinx/Vivado/2021.1/ids_lite/ISE
+XILINX_HLS: D:/programmas/xilinx/Vitis_HLS/2021.1
+XILINX_PLANAHEAD: D:/programmas/xilinx/Vivado/2021.1
+XILINX_VIVADO: D:/programmas/xilinx/Vivado/2021.1
+XILINX_VIVADO_HLS: D:/programmas/xilinx/Vivado/2021.1
+
+
+GUI allocated memory:	256 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,254 MB
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// TclEventType: PROJECT_OPEN_DIALOG
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bz (cs):  Open Project : addNotify
+// Opening Vivado Project: D:\documenten\schooljaar2022\fpga\fpga_dotcatcher\clock_driven_ledmatrix\clock_driven_ledmatrix.xpr. Version: Vivado v2021.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/clock_driven_ledmatrix.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 89 MB (+90535kb) [00:00:10]
+// [Engine Memory]: 1,254 MB (+1163856kb) [00:00:10]
+// [GUI Memory]: 104 MB (+11250kb) [00:00:11]
+// [GUI Memory]: 119 MB (+10255kb) [00:00:12]
+// WARNING: HEventQueue.dispatchEvent() is taking  4125 ms.
+// Tcl Message: open_project D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix/clock_driven_ledmatrix.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/programmas/xilinx/Vivado/2021.1/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 67 MB. Current time: 1/23/22, 10:11:56 AM CET
+// Tcl Message: open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 1484.539 ; gain = 0.000 
+// Project name: clock_driven_ledmatrix; location: D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/clock_driven_ledmatrix; part: xc7a35tcpg236-1
+dismissDialog("Open Project"); // bz
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// [GUI Memory]: 127 MB (+2324kb) [00:00:16]
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 138 MB (+4805kb) [00:00:20]
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 147 MB (+1688kb) [00:00:26]
+// [GUI Memory]: 159 MB (+5497kb) [00:01:25]
+// Elapsed time: 77 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top(Behavioral) (top.vhd)]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top(Behavioral) (top.vhd), timer0 : seven_segment_display_VHDL(Behavioral) (sevenseg.vhd)]", 4, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top(Behavioral) (top.vhd), timer0 : seven_segment_display_VHDL(Behavioral) (sevenseg.vhd)]", 4, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1357 ms.
+selectCodeEditor("sevenseg.vhd", 115, 100); // bP
+typeControlKey((HResource) null, "sevenseg.vhd", 'c'); // bP
+// Elapsed time: 94 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top(Behavioral) (top.vhd)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top(Behavioral) (top.vhd)]", 1, true, false, false, false, false, true); // D - Double Click - Node
+// WARNING: HEventQueue.dispatchEvent() is taking  1201 ms.
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top(Behavioral) (top.vhd)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top(Behavioral) (top.vhd)]", 1, true, false, false, false, false, true); // D - Double Click - Node
+// Elapsed time: 38 seconds
+selectCodeEditor("top.vhd", 483, 150); // bP
+selectCodeEditor("top.vhd", 175, 113, false, false, false, true, false); // bP - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_COPY, "Copy"); // an
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "sevenseg.vhd", 1); // m
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top(Behavioral) (top.vhd), driver : matrix_driver(Behavioral) (matrix_driver.vhd)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top(Behavioral) (top.vhd), driver : matrix_driver(Behavioral) (matrix_driver.vhd)]", 2, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1165 ms.
+selectCodeEditor("matrix_driver.vhd", 165, 139); // bP
+typeControlKey((HResource) null, "matrix_driver.vhd", 'c'); // bP
+// Elapsed time: 211 seconds
+selectCodeEditor("matrix_driver.vhd", 407, 121); // bP
+// Elapsed time: 26 seconds
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // N
+// Elapsed time: 1179 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "top.vhd", 2); // m
+selectCodeEditor("top.vhd", 307, 283); // bP
+selectCodeEditor("top.vhd", 296, 269); // bP
+selectCodeEditor("top.vhd", 2, 178); // bP
+selectCodeEditor("top.vhd", 295, 273); // bP
+selectCodeEditor("top.vhd", 115, 224, false, false, false, true, false); // bP - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_COPY, "Copy"); // an
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 99 MB. Current time: 1/23/22, 10:41:58 AM CET
+// Elapsed time: 160 seconds
+selectCodeEditor("top.vhd", 283, 317); // bP
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 89 MB. Current time: 1/23/22, 11:11:58 AM CET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 88 MB. Current time: 1/23/22, 11:41:58 AM CET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 87 MB. Current time: 1/23/22, 12:11:59 PM CET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 88 MB. Current time: 1/23/22, 12:41:59 PM CET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 87 MB. Current time: 1/23/22, 1:11:59 PM CET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 87 MB. Current time: 1/23/22, 1:42:00 PM CET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 88 MB. Current time: 1/23/22, 2:12:00 PM CET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 87 MB. Current time: 1/23/22, 2:42:00 PM CET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 87 MB. Current time: 1/23/22, 3:12:01 PM CET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 87 MB. Current time: 1/23/22, 3:42:01 PM CET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,254 MB. GUI used memory: 87 MB. Current time: 1/23/22, 4:12:01 PM CET
