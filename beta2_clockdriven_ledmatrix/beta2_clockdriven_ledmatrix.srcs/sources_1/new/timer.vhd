@@ -76,7 +76,9 @@ begin
         Anode_Activate <= "0111"; 
         -- activate LED4 and Deactivate LED2, LED3, LED1
         LED_BCD <= 0;  --currenty disabled
+    when others => Anode_Activate <= "0000";
     end case;
+
 end process;
 
 -- Counting the number to be displayed on 4-digit 7-segment display
