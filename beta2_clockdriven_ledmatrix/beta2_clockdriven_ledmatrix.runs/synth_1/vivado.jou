@@ -2,8 +2,8 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Tue Jan 25 13:26:27 2022
-# Process ID: 6992
+# Start of session at: Tue Jan 25 13:55:17 2022
+# Process ID: 7908
 # Current directory: D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.runs/synth_1/top.vds

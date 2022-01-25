@@ -71,7 +71,7 @@ begin
     when "10" =>
         Anode_Activate <= "1011"; 
         -- activate LED3 and Deactivate LED2, LED1, LED4
-        LED_BCD <= 0; --currently disabled
+        LED_BCD <= lowminutes; --currently disabled
     when "11" =>
         Anode_Activate <= "0111"; 
         -- activate LED4 and Deactivate LED2, LED3, LED1

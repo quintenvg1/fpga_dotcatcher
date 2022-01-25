@@ -2,8 +2,8 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Tue Jan 25 13:26:27 2022
-# Process ID: 6992
+# Start of session at: Tue Jan 25 13:55:17 2022
+# Process ID: 7908
 # Current directory: D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.runs/synth_1/top.vds
@@ -17,9 +17,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 15920
+INFO: [Synth 8-7075] Helper process launched with PID 13368
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top' [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/top.vhd:54]
 INFO: [Synth 8-3491] module 'buttons' declared at 'D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/buttons.vhd:34' bound to instance 'mybutton' of component 'buttons' [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/top.vhd:126]
@@ -29,6 +29,7 @@ INFO: [Synth 8-3491] module 'seven_segment_display_VHDL' declared at 'D:/documen
 INFO: [Synth 8-638] synthesizing module 'seven_segment_display_VHDL' [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/timer.vhd:13]
 WARNING: [Synth 8-614] signal 'lowseconds' is read in the process but is not in the sensitivity list [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/timer.vhd:58]
 WARNING: [Synth 8-614] signal 'highseconds' is read in the process but is not in the sensitivity list [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/timer.vhd:58]
+WARNING: [Synth 8-614] signal 'lowminutes' is read in the process but is not in the sensitivity list [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/timer.vhd:58]
 INFO: [Synth 8-256] done synthesizing module 'seven_segment_display_VHDL' (2#1) [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/timer.vhd:13]
 INFO: [Synth 8-3491] module 'matrix_driver' declared at 'D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/matrixdriver.vhd:34' bound to instance 'mydriver' of component 'matrix_driver' [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/top.vhd:128]
 INFO: [Synth 8-638] synthesizing module 'matrix_driver' [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/matrixdriver.vhd:42]
@@ -47,18 +48,18 @@ WARNING: [Synth 8-614] signal 'nexttargetYint' is read in the process but is not
 WARNING: [Synth 8-614] signal 'btnC' is read in the process but is not in the sensitivity list [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/top.vhd:265]
 INFO: [Synth 8-256] done synthesizing module 'top' (4#1) [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/top.vhd:54]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1160.152 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -69,26 +70,26 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1160.152 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-327] inferring latch for variable 'led1_reg' [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/top.vhd:298]
 WARNING: [Synth 8-327] inferring latch for variable 'won_reg' [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/top.vhd:127]
@@ -102,21 +103,21 @@ WARNING: [Synth 8-327] inferring latch for variable 'playerX_reg' [D:/documenten
 WARNING: [Synth 8-327] inferring latch for variable 'targetY_reg' [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/top.vhd:283]
 WARNING: [Synth 8-327] inferring latch for variable 'playerY_reg' [D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.srcs/sources_1/new/top.vhd:269]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   32 Bit       Adders := 12    
+	   2 Input   32 Bit       Adders := 13    
 	   2 Input    8 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 6     
+	               32 Bit    Registers := 7     
 	                8 Bit    Registers := 1     
 	                1 Bit    Registers := 4     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 36    
+	   2 Input   32 Bit        Muxes := 37    
 	   4 Input   32 Bit        Muxes := 3     
 	   3 Input   32 Bit        Muxes := 2     
 	   5 Input   32 Bit        Muxes := 1     
@@ -141,25 +142,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1152.418 ; gain = 0.000
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1160.152 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1167.285 ; gain = 14.867
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1174.852 ; gain = 14.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1177.867 ; gain = 25.449
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1175.914 ; gain = 15.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -177,37 +178,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1177.867 ; gain = 25.449
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1178.730 ; gain = 18.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1177.867 ; gain = 25.449
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1178.730 ; gain = 18.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1177.867 ; gain = 25.449
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1178.730 ; gain = 18.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1177.867 ; gain = 25.449
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1178.730 ; gain = 18.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1177.867 ; gain = 25.449
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1178.730 ; gain = 18.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1177.867 ; gain = 25.449
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1178.730 ; gain = 18.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -223,15 +224,15 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |BUFG   |     3|
-|2     |CARRY4 |   152|
-|3     |LUT1   |   138|
-|4     |LUT2   |   279|
-|5     |LUT3   |    74|
-|6     |LUT4   |    81|
-|7     |LUT5   |    30|
-|8     |LUT6   |   273|
-|9     |FDCE   |   112|
+|1     |BUFG   |     4|
+|2     |CARRY4 |   160|
+|3     |LUT1   |   140|
+|4     |LUT2   |   303|
+|5     |LUT3   |    89|
+|6     |LUT4   |   141|
+|7     |LUT5   |    62|
+|8     |LUT6   |   196|
+|9     |FDCE   |   144|
 |10    |FDRE   |   172|
 |11    |LD     |    33|
 |12    |LDC    |   102|
@@ -240,29 +241,29 @@ Report Cell Usage:
 |15    |OBUF   |    30|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1177.867 ; gain = 25.449
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1178.730 ; gain = 18.578
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:40 . Memory (MB): peak = 1177.867 ; gain = 25.449
-Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1177.867 ; gain = 25.449
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:27 . Memory (MB): peak = 1178.730 ; gain = 18.578
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 1178.730 ; gain = 18.578
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1186.391 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 298 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1190.797 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 306 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1190.070 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1194.461 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 146 instances were transformed.
   LD => LDCE: 33 instances
   LDC => LDCE: 102 instances
   LDP => LDPE: 11 instances
 
-Synth Design complete, checksum: b27f5f51
+Synth Design complete, checksum: 57a555c6
 INFO: [Common 17-83] Releasing license: Synthesis
-26 Infos, 25 Warnings, 0 Critical Warnings and 0 Errors encountered.
+26 Infos, 26 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 1190.070 ; gain = 37.652
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 1194.461 ; gain = 34.309
 INFO: [Common 17-1381] The checkpoint 'D:/documenten/schooljaar2022/fpga/fpga_dotcatcher/beta2_clockdriven_ledmatrix/beta2_clockdriven_ledmatrix.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Jan 25 13:27:23 2022...
+INFO: [Common 17-206] Exiting Vivado at Tue Jan 25 13:55:54 2022...
