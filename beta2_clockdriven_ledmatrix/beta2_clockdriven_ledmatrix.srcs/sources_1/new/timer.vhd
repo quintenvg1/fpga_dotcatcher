@@ -1,8 +1,7 @@
--- fpga4student.com: FPGA projects, Verilog projects, VHDL projects
--- VHDL code for seven-segment display on Basys 3 FPGA
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.std_logic_unsigned.all;
+
 entity seven_segment_display_VHDL is
     Port ( clk : in STD_LOGIC;-- 100Mhz clock on Basys 3 FPGA board
            reset : in STD_LOGIC; -- reset
@@ -12,45 +11,39 @@ entity seven_segment_display_VHDL is
 end seven_segment_display_VHDL;
 
 architecture Behavioral of seven_segment_display_VHDL is
-signal one_second_counter: STD_LOGIC_VECTOR (27 downto 0);
--- counter for generating 1-second clock enable
-signal one_second_enable: std_logic;
--- one second enable for counting numbers
-signal displayed_number: STD_LOGIC_VECTOR (15 downto 0);
--- counting decimal number to be displayed on 4-digit 7-segment display
-signal LED_BCD: STD_LOGIC_VECTOR (3 downto 0);
-signal refresh_counter: STD_LOGIC_VECTOR (19 downto 0);
--- creating 10.5ms refresh period
-signal LED_activating_counter: std_logic_vector(1 downto 0);
--- the other 2-bit for creating 4 LED-activating signals
--- count         0    ->  1  ->  2  ->  3
--- activates    LED1    LED2   LED3   LED4
--- and repeat
+--variables definition
+
+signal one_second_counter: STD_LOGIC_VECTOR (27 downto 0); --counter to generate 1 seconds
+signal one_second_enable: std_logic; --counter output
+--signal displayed_number: std_logic_vector(15 downto 0); --complete binary code of numbers to output
+signal LED_BCD : integer:=0; --number to display
+signal refresh_counter: std_logic_vector(19 downto 0); --7seg display driver signal
+signal LED_activating_counter: std_logic_vector(1 downto 0); --mux driver signal
+
+signal lowseconds : integer:=0;
+signal highseconds : integer:=0;
+signal lowminutes : integer :=0;
+--signal timerPause : std_logic:='0';
+
 begin
--- VHDL code for BCD to 7-segment decoder
--- Cathode patterns of the 7-segment LED display 
+--bcd to binary translator
 process(LED_BCD)
 begin
     case LED_BCD is
-    when "0000" => LED_out <= "0000001"; -- "0"     
-    when "0001" => LED_out <= "1001111"; -- "1" 
-    when "0010" => LED_out <= "0010010"; -- "2" 
-    when "0011" => LED_out <= "0000110"; -- "3" 
-    when "0100" => LED_out <= "1001100"; -- "4" 
-    when "0101" => LED_out <= "0100100"; -- "5" 
-    when "0110" => LED_out <= "0100000"; -- "6" 
-    when "0111" => LED_out <= "0001111"; -- "7" 
-    when "1000" => LED_out <= "0000000"; -- "8"     
-    when "1001" => LED_out <= "0000100"; -- "9" 
-    when "1010" => LED_out <= "0000010"; -- a
-    when "1011" => LED_out <= "1100000"; -- b
-    when "1100" => LED_out <= "0110001"; -- C
-    when "1101" => LED_out <= "1000010"; -- d
-    when "1110" => LED_out <= "0110000"; -- E
-    when "1111" => LED_out <= "0111000"; -- F
+    when 0 => LED_out <= "0000001"; -- "0"     
+    when 1 => LED_out <= "1001111"; -- "1" 
+    when 2 => LED_out <= "0010010"; -- "2" 
+    when 3 => LED_out <= "0000110"; -- "3" 
+    when 4 => LED_out <= "1001100"; -- "4" 
+    when 5 => LED_out <= "0100100"; -- "5" 
+    when 6 => LED_out <= "0100000"; -- "6" 
+    when 7 => LED_out <= "0001111"; -- "7" 
+    when 8 => LED_out <= "0000000"; -- "8"     
+    when 9 => LED_out <= "0000100"; -- "9"
+    when others => LED_out <= "0000000";
     end case;
 end process;
--- 7-segment display controller
+
 -- generate refresh period of 10.5ms
 process(clk,reset, timerPause)
 begin 
@@ -60,35 +53,33 @@ begin
             refresh_counter <= refresh_counter + 1;
     end if;
 end process;
- LED_activating_counter <= refresh_counter(19 downto 18);
--- 4-to-1 MUX to generate anode activating signals for 4 LEDs 
+
+LED_activating_counter <= refresh_counter(19 downto 18);
 process(LED_activating_counter)
 begin
     case LED_activating_counter is
     when "00" =>
-        Anode_Activate <= "0111"; 
-        -- activate LED1 and Deactivate LED2, LED3, LED4
-        LED_BCD <= displayed_number(15 downto 12);
-        -- the first hex digit of the 16-bit number
-    when "01" =>
-        Anode_Activate <= "1011"; 
-        -- activate LED2 and Deactivate LED1, LED3, LED4
-        LED_BCD <= displayed_number(11 downto 8);
-        -- the second hex digit of the 16-bit number
-    when "10" =>
-        Anode_Activate <= "1101"; 
-        -- activate LED3 and Deactivate LED2, LED1, LED4
-        LED_BCD <= displayed_number(7 downto 4);
-        -- the third hex digit of the 16-bit number
-    when "11" =>
         Anode_Activate <= "1110"; 
+        -- activate LED1 and Deactivate LED2, LED3, LED4
+        LED_BCD <= lowseconds;
+        -- the 1 seconds counter
+    when "01" =>
+        Anode_Activate <= "1101"; 
+        -- activate LED2 and Deactivate LED1, LED3, LED4
+        LED_BCD <= highseconds;
+        -- the 10 seconds counter
+    when "10" =>
+        Anode_Activate <= "1011"; 
+        -- activate LED3 and Deactivate LED2, LED1, LED4
+        LED_BCD <= 0; --currently disabled
+    when "11" =>
+        Anode_Activate <= "0111"; 
         -- activate LED4 and Deactivate LED2, LED3, LED1
-        LED_BCD <= displayed_number(3 downto 0);
-        -- the fourth hex digit of the 16-bit number    
+        LED_BCD <= 0;  --currenty disabled
     end case;
 end process;
--- Counting the number to be displayed on 4-digit 7-segment Display 
--- on Basys 3 FPGA board
+
+-- Counting the number to be displayed on 4-digit 7-segment display
 process(clk, reset)
 begin
         if(reset='1') then
@@ -103,15 +94,34 @@ begin
             end if;
         end if;
 end process;
+
 one_second_enable <= '1' when one_second_counter=x"5F5E0FF" else '0';
+--clock logic
 process(clk, reset)
 begin
         if(reset='1') then
-            displayed_number <= (others => '0');
+            --displayed_number <= (others => '0');
+			lowseconds <= 0;
+			highseconds <= 0;
+			lowminutes <= 0;
         elsif(rising_edge(clk)) then
+            if(timerPause = '0') then
              if(one_second_enable='1') then
-                displayed_number <= displayed_number + x"0001";
-             end if;
-        end if;
+                lowseconds <= lowseconds + 1;
+				if(lowseconds = 9) then
+					lowseconds <= 0;
+					highseconds <= highseconds +1;
+					if(highseconds = 5) then
+						highseconds <= 0;
+						lowminutes <= lowminutes +1;
+						if(lowminutes = 9) then
+						  lowminutes <= 0;
+						end if; --minutes
+					end if; --seconds
+				end if; --seconds
+             end if; --rising edge
+           end if; --timer paused
+        end if; --reset
 end process;
+
 end Behavioral;

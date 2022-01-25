@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Sun Jan 23 17:31:49 2022
+| Date         : Tue Jan 25 13:28:14 2022
 | Host         : DESKTOP-R9KAKAD running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    20 |
-|    Minimum number of control sets                        |    20 |
+| Total control sets                                       |    21 |
+|    Minimum number of control sets                        |    21 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
 | Unused register locations in slices containing registers |    58 |
@@ -39,7 +39,7 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    20 |
+| Total control sets |    21 |
 | >= 0 to < 4        |     6 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     0 |
@@ -47,7 +47,7 @@ Table of Contents
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |    13 |
+| >= 16              |    14 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              41 |           20 |
+| No           | No                    | No                     |              41 |           16 |
 | No           | No                    | Yes                    |              20 |            5 |
-| No           | Yes                   | No                     |             119 |           44 |
-| Yes          | No                    | No                     |              64 |           30 |
-| Yes          | No                    | Yes                    |              44 |           11 |
+| No           | Yes                   | No                     |             119 |           38 |
+| Yes          | No                    | No                     |              64 |           27 |
+| Yes          | No                    | Yes                    |              92 |           27 |
 | Yes          | Yes                   | No                     |              94 |           28 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -73,26 +73,27 @@ Table of Contents
 +----------------------+---------------------------------------+------------------------+------------------+----------------+--------------+
 |     Clock Signal     |             Enable Signal             |    Set/Reset Signal    | Slice Load Count | Bel Load Count | Bels / Slice |
 +----------------------+---------------------------------------+------------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG       | debounceL_i_2_n_0                     | debounceL_i_1_n_0      |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG       | debounceUp_i_2_n_0                    | debounceUp_i_1_n_0     |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG       | debounceR_i_2_n_0                     | debounceR_i_1_n_0      |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG       | p_1_in                                | debounceDwn_i_1_n_0    |                1 |              1 |         1.00 |
-|  led1_reg_i_2_n_0    |                                       |                        |                1 |              1 |         1.00 |
 |  won_reg_i_1_n_0     |                                       | led_OBUF               |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG       |                                       |                        |                3 |              8 |         2.67 |
-|  Xrow_reg[7]_i_2_n_0 |                                       | Xrow_reg[7]_i_3_n_0    |                7 |             16 |         2.29 |
-|  clk_IBUF_BUFG       | mytimer/sel                           | led_OBUF               |                4 |             16 |         4.00 |
-|  playerX__0          |                                       |                        |                6 |             16 |         2.67 |
-|  targetX__0          |                                       |                        |               10 |             16 |         1.60 |
+|  clk_IBUF_BUFG       | p_1_in                                | debounceDwn_i_1_n_0    |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG       | debounceR_i_2_n_0                     | debounceR_i_1_n_0      |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG       | debounceUp_i_2_n_0                    | debounceUp_i_1_n_0     |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG       | debounceL_i_2_n_0                     | debounceL_i_1_n_0      |                1 |              1 |         1.00 |
+|  led1_reg_i_2_n_0    |                                       |                        |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG       |                                       |                        |                2 |              8 |         4.00 |
+|  targetX__0          |                                       |                        |                6 |             16 |         2.67 |
+|  playerX__0          |                                       |                        |                7 |             16 |         2.29 |
+|  Xrow_reg[7]_i_2_n_0 |                                       | Xrow_reg[7]_i_3_n_0    |                5 |             16 |         3.20 |
 |  clk_IBUF_BUFG       |                                       | led_OBUF               |                8 |             26 |         3.25 |
 |  clk_IBUF_BUFG       | mytimer/one_second_counter[0]_i_1_n_0 | led_OBUF               |                7 |             28 |         4.00 |
-|  clk_IBUF_BUFG       | playerXint[31]_i_2_n_0                | playerXint[31]_i_1_n_0 |                8 |             29 |         3.62 |
 |  clk_IBUF_BUFG       | playerYint[31]_i_2_n_0                | playerYint[31]_i_1_n_0 |                8 |             29 |         3.62 |
-|  clk_IBUF_BUFG       | eqOp                                  | gamestate              |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG       | nexttargetXint[31]_i_1_n_0            |                        |               20 |             32 |         1.60 |
-|  clk_IBUF_BUFG       | nexttargetYint                        |                        |               10 |             32 |         3.20 |
+|  clk_IBUF_BUFG       | playerXint[31]_i_2_n_0                | playerXint[31]_i_1_n_0 |                8 |             29 |         3.62 |
 |  score__0_BUFG       |                                       | led_OBUF               |                9 |             32 |         3.56 |
-|  targetXint__0_BUFG  |                                       | btnC_IBUF              |               24 |             64 |         2.67 |
+|  clk_IBUF_BUFG       | mytimer/highseconds[31]_i_1_n_0       | led_OBUF               |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG       | mytimer/lowseconds[31]_i_1_n_0        | led_OBUF               |               12 |             32 |         2.67 |
+|  clk_IBUF_BUFG       | nexttargetYint                        |                        |                9 |             32 |         3.56 |
+|  clk_IBUF_BUFG       | eqOp                                  | gamestate              |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG       | nexttargetXint[31]_i_1_n_0            |                        |               18 |             32 |         1.78 |
+|  targetXint__0_BUFG  |                                       | btnC_IBUF              |               20 |             64 |         3.20 |
 +----------------------+---------------------------------------+------------------------+------------------+----------------+--------------+
 
 
